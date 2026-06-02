@@ -166,12 +166,13 @@ services:
       PYTHONUNBUFFERED: '1'
     volumes:
       - ./reader_oneliner.py:/reader.py
+      - ./entrypoint.sh:/entrypoint.sh
       - ./output:/app/output
     working_dir: /app
-    command: /usr/local/bin/python -m pip install pandas sqlalchemy psycopg2-binary -q && python /reader.py
+    command: /bin/sh /entrypoint.sh
     networks:
       - ecommerce-network
-    restart: unless-stopped
+    restart: 'no'
     logging:
       driver: "json-file"
       options:

@@ -133,6 +133,9 @@ def generate_ecommerce_event():
         "session_id": session_id,
         "timestamp": timestamp,
         "event_type": event_type,
+        "user_id": user.get("user_id"),
+        "product_id": product.get("product_id"),
+        "device_id": user["device"]["type"],
         "user": user,
         "product": product
     }

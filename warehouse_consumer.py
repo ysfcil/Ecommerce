@@ -56,7 +56,9 @@ def main():
                     event.get("event_id"),
                     event.get("session_id"),
                     event.get("event_type"),
-                    event.get("timestamp")
+                    event.get("timestamp"),
+                    event.get("user"),
+                    event.get("product")
                 ))
                 event_count += 1
                 

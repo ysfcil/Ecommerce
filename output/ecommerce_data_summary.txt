@@ -1,0 +1,35 @@
+================================================================================
+ECOMMERCE DATA SUMMARY
+================================================================================
+
+Total Events: 2164
+Columns: event_id, event_key, session_key, user_id, product_id, device_id, event_type, quantity, event_timestamp, created_at
+
+Event Type Breakdown:
+event_type
+view_item      1379
+add_to_cart     622
+purchase        163
+
+First 20 Rows:
+    event_id                             event_key                           session_key user_id product_id device_id   event_type  quantity     event_timestamp                 created_at
+0       2164  5432544f-7916-4aba-a22a-9b878f057d3c  2f551a10-0ef6-42fd-8dbc-a9108e4605cf    None       None      None    view_item         1 2026-06-02 19:54:12 2026-06-02 19:54:12.285007
+1       2163  b92fe8a6-dda5-48ca-acf9-7f29a2d36f54  2b1268da-e6c6-4574-a535-07b8f8011d0a    None       None      None    view_item         1 2026-06-02 19:54:11 2026-06-02 19:54:11.785395
+2       2162  ed24cd99-c97a-420f-b508-c070c999c506  f60dc915-3c4b-4fba-b967-97aaeafc59c7    None       None      None  add_to_cart         1 2026-06-02 19:54:11 2026-06-02 19:54:11.283679
+3       2161  2b2b2801-7ea1-461d-b507-745a8e401407  e76ddac1-f2d1-4c32-be5e-4d03e5e79fea    None       None      None    view_item         1 2026-06-02 19:54:10 2026-06-02 19:54:10.782089
+4       2160  8418771c-e95c-416b-bd94-84f036f3307f  947711e4-a7fd-4237-9740-40a14538a3df    None       None      None    view_item         1 2026-06-02 19:54:10 2026-06-02 19:54:10.282777
+5       2159  cd2dab35-9fce-4b3f-81ea-e7db157c2d53  36f5ad6e-e586-42eb-bbf8-c004f797b836    None       None      None    view_item         1 2026-06-02 19:54:09 2026-06-02 19:54:09.779715
+6       2158  e7079b9d-89d1-4475-9160-10241a4678da  1ceae170-3ba0-47cd-a095-83b0a051011e    None       None      None    view_item         1 2026-06-02 19:54:09 2026-06-02 19:54:09.277334
+7       2157  04d2c6e9-a280-42ab-9018-896db0e260aa  273cd355-6aee-4454-b57c-6fadfe75caf3    None       None      None    view_item         1 2026-06-02 19:54:08 2026-06-02 19:54:08.776260
+8       2156  1d58975d-118b-4e64-bfc4-35f57e28066f  46083872-19c3-4504-81ce-6811bfbe4a6e    None       None      None    view_item         1 2026-06-02 19:54:08 2026-06-02 19:54:08.275509
+9       2155  255633a5-0b3e-42cc-acc2-9b153132f807  94a47003-3659-49c5-a11a-6b8fd3ad548d    None       None      None    view_item         1 2026-06-02 19:54:07 2026-06-02 19:54:07.774506
+10      2154  ba829940-5957-473f-b412-36b9c0f9b3b6  221c40dc-18ce-4295-9aba-20dd55a4c149    None       None      None    view_item         1 2026-06-02 19:54:07 2026-06-02 19:54:07.274445
+11      2153  0e00385e-be28-4e0a-8de8-75341a027e12  9db4a903-ef88-4e79-bfa8-181e8bb511d2    None       None      None    view_item         1 2026-06-02 19:54:06 2026-06-02 19:54:06.772201
+12      2152  ba880177-f2e3-4048-a7c8-b7523edccb65  64e1cf6e-9965-4d00-9188-f08ae21cbae7    None       None      None    view_item         1 2026-06-02 19:54:06 2026-06-02 19:54:06.271723
+13      2151  38fd2f70-39fe-4d2d-86c9-976004d68bad  644ddb4b-8dee-4f82-a0be-608441e2163e    None       None      None    view_item         1 2026-06-02 19:54:05 2026-06-02 19:54:05.770559
+14      2150  bf4ad6ed-0d3f-4de0-9708-61d6e584d2c9  b60ca7da-2bd9-41a8-9bd8-f25fc64315ce    None       None      None    view_item         1 2026-06-02 19:54:05 2026-06-02 19:54:05.269081
+15      2149  e46c9575-303b-4961-b1e3-6e52f1d72bfb  252c18bf-dd8c-4a0c-b427-5b1d5c9ae628    None       None      None    view_item         1 2026-06-02 19:54:04 2026-06-02 19:54:04.767461
+16      2148  0e734fff-d95f-4c6d-8e23-6e687d84f542  e74120c9-336d-4ba9-bdd1-73966d5a09c1    None       None      None    view_item         1 2026-06-02 19:54:04 2026-06-02 19:54:04.266684
+17      2147  4c4a550a-f12c-419b-a84c-9a5a8de8b85d  cac20685-5914-4bf7-8829-865491bca76d    None       None      None    view_item         1 2026-06-02 19:54:03 2026-06-02 19:54:03.765450
+18      2146  081f8cb2-7b90-42f0-bb0f-38f5776bdde9  072df741-79f3-425c-9ae7-a7182ef30d07    None       None      None  add_to_cart         1 2026-06-02 19:54:03 2026-06-02 19:54:03.264385
+19      2145  2e68a5b0-62e0-429c-ac76-c82b25608091  7c508e89-254e-4ba7-bf0e-88585b318159    None       None      None  add_to_cart         1 2026-06-02 19:54:02 2026-06-02 19:54:02.763297
