@@ -1,0 +1,7 @@
+kafka-python==2.0.2
+faker==40.19.1
+faker-commerce==1.0.4
+apache-beam==2.56.0
+psycopg2-binary==2.9.9
+pandas==2.2.0
+sqlalchemy==2.0.23
