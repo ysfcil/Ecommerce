@@ -12,7 +12,7 @@ psql -U data_engineer -d ecommerce_warehouse << EOF
 -- Dimension: Users
 CREATE TABLE IF NOT EXISTS dim_users (
     user_id BIGSERIAL PRIMARY KEY,
-    user_key VARCHAR(50) UNIQUE NOT NULL,
+    user_key VARCHAR(100) UNIQUE NOT NULL,
     name VARCHAR(255),
     email VARCHAR(255) UNIQUE,
     country VARCHAR(100),
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS dim_users (
 -- Dimension: Products
 CREATE TABLE IF NOT EXISTS dim_products (
     product_id BIGSERIAL PRIMARY KEY,
-    product_key VARCHAR(50) UNIQUE NOT NULL,
+    product_key VARCHAR(100) UNIQUE NOT NULL,
     title VARCHAR(500),
     category VARCHAR(100),
     sub_category VARCHAR(100),
@@ -46,11 +46,11 @@ CREATE TABLE IF NOT EXISTS dim_devices (
 -- Fact: Clickstream Events
 CREATE TABLE IF NOT EXISTS fact_events (
     event_id BIGSERIAL PRIMARY KEY,
-    event_key VARCHAR(50) UNIQUE NOT NULL,
-    session_key VARCHAR(50),
-    user_id BIGINT REFERENCES dim_users(user_id) ON DELETE SET NULL,
-    product_id BIGINT REFERENCES dim_products(product_id) ON DELETE SET NULL,
-    device_id BIGINT REFERENCES dim_devices(device_id) ON DELETE SET NULL,
+    event_key VARCHAR(100) UNIQUE NOT NULL,
+    session_key VARCHAR(100),
+    user_id BIGINT,
+    product_id BIGINT,
+    device_id VARCHAR(50),
     event_type VARCHAR(50),
     quantity INT DEFAULT 1,
     event_timestamp TIMESTAMP NOT NULL,

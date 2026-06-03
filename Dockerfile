@@ -44,7 +44,7 @@ RUN useradd -m -u 1000 appuser
 COPY --from=builder --chown=appuser:appuser /opt/venv /opt/venv
 
 # Copy application code
-COPY --chown=appuser:appuser producer.py beam_manager.py reader.py .
+COPY --chown=appuser:appuser producer.py reader.py .
 COPY --chown=appuser:appuser requirements.txt .
 
 # Switch to non-root user

@@ -130,9 +130,7 @@ services:
         max-file: "3"
 
   warehouse-consumer:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: python:3.11-slim
     container_name: warehouse-consumer
     depends_on:
       postgres:
@@ -146,7 +144,10 @@ services:
       DB_USER: data_engineer
       DB_PASSWORD: supersecretpassword
       DB_NAME: ecommerce_warehouse
-    command: python warehouse_consumer.py
+    volumes:
+      - ./simple_consumer.py:/simple_consumer.py
+    working_dir: /
+    command: /bin/sh -c 'pip install kafka-python psycopg2-binary -q && python /simple_consumer.py'
     networks:
       - ecommerce-network
     restart: unless-stopped
@@ -164,6 +165,11 @@ services:
         condition: service_healthy
     environment:
       PYTHONUNBUFFERED: '1'
+      DB_HOST: postgres
+      DB_PORT: '5432'
+      DB_USER: data_engineer
+      DB_PASSWORD: supersecretpassword
+      DB_NAME: ecommerce_warehouse
     volumes:
       - ./reader_oneliner.py:/reader.py
       - ./entrypoint.sh:/entrypoint.sh
