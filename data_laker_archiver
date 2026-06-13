@@ -1,0 +1,47 @@
+import os
+import json
+from datetime import datetime
+from kafka import KafkaConsumer
+
+# 1. Define and Create the Data Lake Directory
+DATALAKE_DIR = "raw_datalake"
+
+if not os.path.exists(DATALAKE_DIR):
+    os.makedirs(DATALAKE_DIR)
+    print(f"Created new directory: {DATALAKE_DIR}/")
+
+# 2. Initialize the Kafka Consumer
+# We use a unique group_id so this consumer reads independently of your Apache Beam/SQL pipeline
+consumer = KafkaConsumer(
+    'ecommerce_clickstream',
+    bootstrap_servers=['localhost:29092'],
+    auto_offset_reset='earliest',
+    enable_auto_commit=True,
+    group_id=None,
+    value_deserializer=lambda x: json.loads(x.decode('utf-8'))
+)
+
+print(f"Data Lake Archiver actively listening on localhost:9092...")
+print(f"Archiving raw streams to ./{DATALAKE_DIR}/ (Press Ctrl+C to stop)\n")
+
+# 3. Stream and Archive
+try:
+    for message in consumer:
+        print("message in consumer")
+        raw_event = message.value
+        print(message.value)
+        # Generate today's date for partitioning (e.g., 2026-06-03)
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        
+        # Create the file name using JSONL (JSON Lines) format
+        file_name = f"raw_events_{today_str}.jsonl"
+        file_path = os.path.join(DATALAKE_DIR, file_name)
+        
+        # Open the file in Append mode ("a") and write the flat JSON string
+        with open(file_path, "a") as file:
+            file.write(json.dumps(raw_event) + "\n")
+            
+        print(f"Archived Event ID: {raw_event.get('event_id', 'Unknown')} -> {file_name}")
+
+except KeyboardInterrupt:
+    print("\nData Lake Archiver gracefully shut down.")
